@@ -24,6 +24,6 @@ install:
 # command to run tests, e.g. python setup.py test
 script: 
 - python setup.py build_ext --inplace
-- py.test --doctest-cython --cov=./
+- py.test --doctest-cython --cov=./epidemic_network_modelling/
 
 

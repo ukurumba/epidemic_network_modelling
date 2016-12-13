@@ -9,7 +9,7 @@ Tests for `epidemic_network_modelling` module.
 """
 
 import epidemic_network_modelling.epidemic_network_modelling as em 
-from epidemic_network_modelling import fib
+import epidemic_network_modelling.fib as fib
 import numpy as np
 
 def func(x):
