@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 from setuptools import setup
+from distutils.core import setup
+from Cython.Build import cythonize
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -48,6 +50,7 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
     ],
+    ext_modules=cythonize('./epidemic_network_modelling/fib.pyx'),
     test_suite='tests',
     tests_require=test_requirements
 )
