@@ -4,6 +4,9 @@
 from setuptools import setup
 from distutils.core import setup
 from Cython.Build import cythonize
+from distutils.extension import Extension
+from Cython.Distutils import build_ext
+
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -18,6 +21,17 @@ requirements = [
 test_requirements = [
     # TODO: put package test requirements here
 ]
+
+
+
+ext_modules=[
+    Extension("enm_cython",
+              ["./epidemic_network_modelling/enm_cython.pyx"],
+              # libraries=["m"],
+              extra_compile_args = ["-O3", "-ffast-math", "-march=native", "/openmp", "-fopenmp" ],
+              extra_link_args=['-fopenmp']
+              ) 
+    ]
 
 setup(
     name='epidemic_network_modelling',
@@ -50,7 +64,8 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
     ],
-    ext_modules=cythonize('./epidemic_network_modelling/fib.pyx'),
+    cmdclass = {'build_ext': build_ext},
+    ext_modules=ext_modules,
     test_suite='tests',
     tests_require=test_requirements
 )
