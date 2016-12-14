@@ -1,0 +1,37 @@
+============================= test session starts =============================
+platform win32 -- Python 3.5.2, pytest-2.8.1, py-1.4.31, pluggy-0.3.1
+rootdir: C:\Users\club084\Documents\Classes\Fall 2016\CHE_477\repos\epidemic_network_modelling, inifile: 
+plugins: cov-2.4.0, cython-0.1.0
+collected 9 items
+
+tests\test_epidemic_network_modelling.py ........F
+
+================================== FAILURES ===================================
+_____________________________ test_cython_sri_mc ______________________________
+
+    def test_cython_sri_mc():
+    	graph = np.array([[1.0,1],[1,2]])
+    	transmission_prob = 0.5
+    	recovery_prob = 0.2
+    	occupation_prob = .8
+    	num_its = 6
+    	ages = np.array([2,6,4,23,7,4,9,13,15,16,2,2,5,4,2,6,7,8,6,4,2,5,8,5,9,10,3,2,3,3,3],ndmin=2)
+>   	num_susceptible, num_infected, num_recovered =  emc.cython_wrapper_sri_mc(graph,ages,transmission_prob,recovery_prob,occupation_prob)
+E    TypeError: 'int' object is not iterable
+
+tests\test_epidemic_network_modelling.py:86: TypeError
+---------------------------- Captured stderr call -----------------------------
+Exception ignored in: 'enm_cython.c_sri_mc'
+TypeError: an integer is required
+
+----------- coverage: platform win32, python 3.5.2-final-0 -----------
+Name                                                       Stmts   Miss  Cover
+------------------------------------------------------------------------------
+epidemic_network_modelling\__init__.py                         3      0   100%
+epidemic_network_modelling\epidemic_network_modelling.py     116      2    98%
+tests\__init__.py                                              0      0   100%
+tests\test_epidemic_network_modelling.py                      65      2    97%
+------------------------------------------------------------------------------
+TOTAL                                                        184      4    98%
+
+===================== 1 failed, 8 passed in 59.30 seconds =====================

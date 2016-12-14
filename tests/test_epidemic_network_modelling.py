@@ -50,7 +50,8 @@ def test_network_mc():
     recovery_prob = .3
     occupation_prob = .8
     num_its = 5
-    em.network_mc(deg_seq,ages,em.min_epidemic_choice_fx,transmission_prob,recovery_prob,occupation_prob,num_its_network_mc=10,num_its_sri_mc=100)
+    graph_percent = .06
+    em.network_mc(deg_seq,ages,em.min_epidemic_choice_fx,transmission_prob,recovery_prob,occupation_prob,graph_percent,num_its_network_mc=11,num_its_sri_mc=100)
 
 def test_min_epidemic_choice_fx():
 	ages = [42,23,37]

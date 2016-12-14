@@ -112,7 +112,7 @@ def sri_mc (adjacency_matrix, age,transmission_probability,recovery_probability,
     return num_susceptible, num_infected, num_recovered
 
 
-def network_mc(degree_sequence, ages, choice_function, transmission_probability, recovery_probability,occupation_probability,num_its_network_mc = 1000, num_its_sri_mc = 100):
+def network_mc(degree_sequence, ages, choice_function, transmission_probability, recovery_probability,occupation_probability,graph_percent,num_its_network_mc = 10, num_its_sri_mc = 100):
     ''' This function iterates randomly over many possible networks in the graph, selecting the top networks using a 
     supplied choice function. Typically the choice function will involve evolving the given network over many different possible
     configurations using a swap function that maintains the input degree sequence. 
@@ -165,7 +165,7 @@ def network_mc(degree_sequence, ages, choice_function, transmission_probability,
 
     #calculating number of graphs to return
     uniques = len(counter)
-    returned = int(uniques * percentage)
+    returned = int(uniques * graph_percent)
     if returned == 0:
         returned = 1 
 
